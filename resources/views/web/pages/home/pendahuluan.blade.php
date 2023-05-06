@@ -11,7 +11,7 @@
           <h3>Pendahuluan</h3>
           <h5>{{ $datapendahuluan->judul ?? '' }}</h5>
           <p>{!! substr(strip_tags($datapendahuluan->deskripsi ?? ''),0,600) !!}</p>
-          <button type="button" class="btn btn-primary" style="width:150px;"  data-bs-toggle="modal" data-bs-target="#exampleModal" onClick="return viewPendahuluan()">Selengkapnya</button>
+          <button type="button" class="btn btn-info text-white" style="width:150px;"  data-bs-toggle="modal" data-bs-target="#exampleModal" onClick="return viewPendahuluan()">Selengkapnya</button>
         </div>
       </div>
       <div class="row">
@@ -24,7 +24,7 @@
           <h3>Latar Belakang</h3>
           <h5>{{ $datalatarbelakang->judul ?? '' }}</h5>
           <p>{!! substr(strip_tags($datalatarbelakang->deskripsi ?? ''),0,600) !!}</p>
-          <button type="button" class="btn btn-primary" style="width:150px;"  data-bs-toggle="modal" data-bs-target="#exampleModal" onClick="return viewLatarBelakang()">Selengkapnya</button>
+          <button type="button" class="btn btn-info text-white" style="width:150px;"  data-bs-toggle="modal" data-bs-target="#exampleModal" onClick="return viewLatarBelakang()">Selengkapnya</button>
         </div>
       </div>
     </div>

@@ -6,12 +6,12 @@
             <h1>{{ $datapendahuluan->judul ?? ''}}</h1>
             <h2>{!! substr($datapendahuluan->deskripsi ?? '' ,0,60) !!} ...</h2>
             <div class="text-center text-lg-start">
-              <a href="#pendahuluan" class="btn-get-started scrollto">Selengkapnya</a>
+              <a href="#pendahuluan" class="btn-get-started scrollto" style="background-color:#148F77 !important;">Selengkapnya</a>
             </div>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
-          <img src="{{ asset('images/baner.png') }}" class="img-fluid animated" alt="">
+          <img src="{{ asset('images/baner_icon.png') }}" class="img-fluid animated" alt="">
         </div>
       </div>
     </div>
