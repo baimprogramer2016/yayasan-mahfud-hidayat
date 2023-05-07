@@ -9,12 +9,12 @@
           
         </div>
         <div class="col-md-8 pt-5" data-aos="fade-up">
-          <h3>{{ $dataprogrammaster->judul ?? ''}}</h3>
+          <h3><strong>{{ $dataprogrammaster->judul ?? ''}}</strong></h3>
           <p>{!! $dataprogrammaster->deskripsi ?? '' !!}</p>
           <ul>
             @if($dataprogramdetail != '')  
             @foreach ($dataprogramdetail as $item_program_detail)
-              <li><i class="bi bi-check"></i> {{ $item_program_detail->judul }}</li>
+              <li class='text-secondary w-500'><i class="bi bi-check"></i><b> {{ $item_program_detail->judul }}</b></li>
             @endforeach
             @endif
           </ul>
