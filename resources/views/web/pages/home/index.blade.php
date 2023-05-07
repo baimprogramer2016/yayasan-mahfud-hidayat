@@ -10,10 +10,10 @@
   @include('web.pages.home.program')
   @include('web.pages.home.struktural')
   @include('web.pages.home.team')
+  @include('web.pages.home.lainlain')
   @include('web.pages.home.gallery')
   @include('web.pages.home.pendaftaran')
   {{-- @include('web.pages.home.about')
-  @include('web.pages.home.features')
   @include('web.pages.home.counts')
   @include('web.pages.home.details')
   

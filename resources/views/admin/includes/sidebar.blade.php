@@ -82,8 +82,20 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#media-sosial" aria-expanded="false" aria-controls="media-sosial">
+        <a class="nav-link" data-toggle="collapse" href="#videotestimonial" aria-expanded="false" aria-controls="videotestimonial">
             <i class="bi bi-youtube mr-2"></i>
+          <span class="menu-title">Testimonial</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="videotestimonial">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{ route('video-testimonial') }}"> Video </a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#media-sosial" aria-expanded="false" aria-controls="media-sosial">
+            <i class="bi bi-link mr-2"></i>
           <span class="menu-title">Update URL</span>
           <i class="menu-arrow"></i>
         </a>

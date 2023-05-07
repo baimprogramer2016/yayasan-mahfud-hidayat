@@ -12,26 +12,29 @@ use App\Models\Struktural;
 use App\Models\Team;
 use App\Models\Gallery;
 use App\Models\UpdateUrl;
+use App\Models\VideoTestimonial;
 
 class BerandaController extends Controller
 {
     public function index(Request $request)
     {
-        $datapendahuluan    = Pendahuluan::first(); 
-        
+        $datapendahuluan    = Pendahuluan::first();
+
         $datalatarbelakang  = LatarBelakang::first();
         $dataprogrammaster  = ProgramMaster::first();
         $dataprogramdetail  = ProgramDetail::get();
         $datastruktural     = Struktural::get();
         $datateam           = Team::get();
         $datagallery        = Gallery::get();
-        $dataalamat         = UpdateUrl::where('nama','alamat')->first();
-        $dataemail          = UpdateUrl::where('nama','email')->first();
-        $datatelephone      = UpdateUrl::where('nama','telephone')->first();
-        $datayoutube        = UpdateUrl::where('nama','youtube')->first();
-        $datafacebook       = UpdateUrl::where('nama','facebook')->first();
-        $datainstagram      = UpdateUrl::where('nama','instagram')->first();
-        
+        $dataalamat         = UpdateUrl::where('nama', 'alamat')->first();
+        $dataemail          = UpdateUrl::where('nama', 'email')->first();
+        $datatelephone      = UpdateUrl::where('nama', 'telephone')->first();
+        $datayoutube        = UpdateUrl::where('nama', 'youtube')->first();
+        $datafacebook       = UpdateUrl::where('nama', 'facebook')->first();
+        $datainstagram      = UpdateUrl::where('nama', 'instagram')->first();
+        $datanamaperusahaan = UpdateUrl::where('nama', 'namaperusahaan')->first();
+        $datavideotestimonial    = VideoTestimonial::get()->take(3);
+
 
         return view('web.pages.home.index', [
             "datapendahuluan"   => $datapendahuluan,
@@ -47,11 +50,13 @@ class BerandaController extends Controller
             "datayoutube"       => $datayoutube,
             "datafacebook"      => $datafacebook,
             "datainstagram"     => $datainstagram,
+            "datanamaperusahaan"     => $datanamaperusahaan,
+            "datavideotestimonial"     => $datavideotestimonial,
         ]);
     }
     public function viewPendahuluan(Request $request)
     {
-        $datapendahuluan    = Pendahuluan::first();        
+        $datapendahuluan    = Pendahuluan::first();
 
         return view('web.pages.home.detail-pendahuluan', [
             "datapendahuluan" => $datapendahuluan,
@@ -59,7 +64,7 @@ class BerandaController extends Controller
     }
     public function viewLatarBelakang(Request $request)
     {
-        $datalatarbelakang    = LatarBelakang::first();        
+        $datalatarbelakang    = LatarBelakang::first();
 
         return view('web.pages.home.detail-latar-belakang', [
             "datalatarbelakang" => $datalatarbelakang,

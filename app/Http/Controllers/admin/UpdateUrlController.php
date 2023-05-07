@@ -60,6 +60,10 @@ class UpdateUrlController extends Controller
         $lokasi->url = $request->lokasi;
         $lokasi->save();
 
+        $namayayasan = UpdateUrl::where('nama', 'namaperusahaan')->first();
+        $namayayasan->url = $request->namaperusahaan;
+        $namayayasan->save();
+
 
         $logo = UpdateUrl::where('nama', 'logo')->first();
 
