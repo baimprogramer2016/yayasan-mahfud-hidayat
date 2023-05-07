@@ -1,11 +1,9 @@
 <?php
 function checkType($type)
 {
-    $dataType = ["jpg",'png','jpeg'];
-    foreach($dataType as $tp)
-    {
-        if($tp == $type)
-        {
+    $dataType = ["jpg", 'png', 'jpeg'];
+    foreach ($dataType as $tp) {
+        if ($tp == $type) {
             return true;
             break;
         }
@@ -15,48 +13,30 @@ function checkType($type)
 
 function descStatus($param)
 {
-    if($param == 'N')
-    {
+    if ($param == 'N') {
         $result = 'Pendaftaran Baru';
-    }
-    elseif($param == 'O')
-    {
+    } elseif ($param == 'O') {
         $result = 'Telah dibaca';
-    }
-    elseif($param == 'P')
-    {
+    } elseif ($param == 'P') {
         $result = 'Proses Tindak Lanjut';
-    }
-    elseif($param == 'R')
-    {
+    } elseif ($param == 'R') {
         $result = 'Dibatalkan';
-    }
-    elseif($param == 'D')
-    {
+    } elseif ($param == 'D') {
         $result = 'Selesai ';
     }
     return $result;
 }
 function descColor($param)
 {
-    if($param == 'N')
-    {
+    if ($param == 'N') {
         $result = 'warning';
-    }
-    elseif($param == 'O')
-    {
+    } elseif ($param == 'O') {
         $result = 'primary';
-    }
-    elseif($param == 'P')
-    {
+    } elseif ($param == 'P') {
         $result = 'info';
-    }
-    elseif($param == 'R')
-    {
+    } elseif ($param == 'R') {
         $result = 'danger';
-    }
-    elseif($param == 'D')
-    {
+    } elseif ($param == 'D') {
         $result = 'success ';
     }
     return $result;
