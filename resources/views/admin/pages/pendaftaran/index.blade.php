@@ -78,7 +78,7 @@
                     </td>
                     <td>
                       <select class="form-control form-control-sm" name="status" id="status_{{ $item_siswa->id }}" onchange="updateStatus('{{ $item_siswa->id }}')">
-                          <option value="{{ $item_siswa->status }}">{{ descStatus($item_siswa->status) }}</option>
+                          <option value="{{ $item_siswa->status }}">{{ $item_siswa->status_description }}</option>
                           <option value="N">Baru</option>
                           <option value="O">Dibaca</option>
                           <option value="P">Proses</option>

@@ -6,15 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\LatarBelakang;
 use Illuminate\Support\Str;
+use App\Traits\GeneralTrait;
 
 class LatarBelakangController extends Controller
 {
+    use GeneralTrait;
+
     public function index(Request $request)
     {
         $data = LatarBelakang::first();
         return view('admin.pages.latar-belakang.index', [
             "data" => $data
-        ]);   
+        ]);
     }
 
     public function tambah(Request $request)
@@ -32,13 +35,12 @@ class LatarBelakangController extends Controller
         ];
 
         $data   =   LatarBelakang::count();
-        if($data == 1)
-        {
-            return redirect()->route('latar-belakang')->with('pesan_error','Gagal, Data sudah ada Silahkan Update ');
+        if ($data == 1) {
+            return redirect()->route('latar-belakang')->with('pesan_error', 'Gagal, Data sudah ada Silahkan Update ');
         }
 
         $result =   LatarBelakang::create($payload);
-        return redirect()->route('latar-belakang')->with('pesan','Berhasil Tambah Data');
+        return redirect()->route('latar-belakang')->with('pesan', 'Berhasil Tambah Data');
     }
 
     public function edit(Request $request, $id)
@@ -56,10 +58,10 @@ class LatarBelakangController extends Controller
         $data->judul = $request->judul;
         $data->slug = Str::of($request->judul)->slug('-');
         $data->deskripsi = $request->deskripsi;
-        
+
         $data->save();
 
-        return redirect()->route('latar-belakang')->with('pesan','Berhasil Update Data');    
+        return redirect()->route('latar-belakang')->with('pesan', 'Berhasil Update Data');
     }
 
     public function image(Request $request, $id)
@@ -71,19 +73,17 @@ class LatarBelakangController extends Controller
 
     public function imageSave(Request $request, $id)
     {
-     
+
         $type = $request->image->extension();
 
-        if(!checkType($type))
-        {
-            return redirect()->route('latar-belakang')->with('pesan_error','File Harus Gambar');    
+        if (!$this->checkType($type)) {
+            return redirect()->route('latar-belakang')->with('pesan_error', 'File Harus Gambar');
         }
 
         $data = LatarBelakang::find($id);
 
-        $imageName = time().'.'.$request->image->extension();
-        if($data->image !='')
-        {
+        $imageName = time() . '.' . $request->image->extension();
+        if ($data->image != '') {
             $imageName = $data->image;
         }
 
@@ -93,23 +93,20 @@ class LatarBelakangController extends Controller
         $data->image = $imageName;
         $data->save();
 
-        return redirect()->route('latar-belakang')->with('pesan','Image berhasil di Update');    
+        return redirect()->route('latar-belakang')->with('pesan', 'Image berhasil di Update');
     }
 
     public function delete($id)
     {
         $data = LatarBelakang::find($id);
-        if($data != '')
-        {
+        if ($data != '') {
             $data->delete();
         }
-        if($data->image != null)
-        {
-            unlink('uploads/'.$data->image);
+        if ($data->image != null) {
+            unlink('uploads/' . $data->image);
         }
-            
 
-        return redirect()->route('latar-belakang')->with('pesan','Data berhasil di Hapus');    
 
+        return redirect()->route('latar-belakang')->with('pesan', 'Data berhasil di Hapus');
     }
 }

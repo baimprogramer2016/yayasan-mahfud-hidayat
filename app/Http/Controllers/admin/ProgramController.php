@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\ProgramMaster;
 use App\Models\ProgramDetail;
 use Illuminate\Support\Str;
+use App\Traits\GeneralTrait;
 
 class ProgramController extends Controller
 {
+    use GeneralTrait;
     public function index(Request $request)
     {
         $data = ProgramDetail::get();
@@ -21,8 +23,8 @@ class ProgramController extends Controller
     public function updateProgramMaster(Request $request)
     {
         $datamaster = ProgramMaster::first();
-        
-        return view('admin.pages.program.update-master',[
+
+        return view('admin.pages.program.update-master', [
             "datamaster" => $datamaster
         ]);
     }
@@ -38,33 +40,28 @@ class ProgramController extends Controller
         //ambil nama image
         $data = ProgramMaster::first();
 
-        if($request->image !='')
-        {
+        if ($request->image != '') {
             $type = $request->image->extension();
 
-            if(!checkType($type))
-            {
-                return redirect()->route('program')->with('pesan_error','File Harus Gambar');    
+            if (!$this->checkType($type)) {
+                return redirect()->route('program')->with('pesan_error', 'File Harus Gambar');
             }
 
-            $imageName = time().'.'.$request->image->extension();
+            $imageName = time() . '.' . $request->image->extension();
 
-            if($data->image !='')
-            {
+            if ($data->image != '') {
                 $imageName = $data->image;
             }
             $upload = $request->image->move(public_path('uploads'), $imageName);
             $payload['image'] = $imageName;
-        }
-        else
-        {
+        } else {
             $imageName = $data->image;
             $payload['image'] = $imageName;
         }
 
         ProgramMaster::truncate();
         $result =   ProgramMaster::create($payload);
-        return redirect()->route('program')->with('pesan','Berhasil Update Master Program');
+        return redirect()->route('program')->with('pesan', 'Berhasil Update Master Program');
     }
 
 
@@ -82,7 +79,7 @@ class ProgramController extends Controller
         ];
 
         $result =   ProgramDetail::create($payload);
-        return redirect()->route('program')->with('pesan','Berhasil Tambah Data');
+        return redirect()->route('program')->with('pesan', 'Berhasil Tambah Data');
     }
 
     public function edit(Request $request, $id)
@@ -100,10 +97,10 @@ class ProgramController extends Controller
         $data->judul = $request->judul;
         $data->slug = Str::of($request->judul)->slug('-');
         $data->deskripsi = $request->deskripsi;
-        
+
         $data->save();
 
-        return redirect()->route('program')->with('pesan','Berhasil Update Data');    
+        return redirect()->route('program')->with('pesan', 'Berhasil Update Data');
     }
 
     public function image(Request $request, $id)
@@ -115,19 +112,17 @@ class ProgramController extends Controller
 
     public function imageSave(Request $request, $id)
     {
-     
+
         $type = $request->image->extension();
 
-        if(!checkType($type))
-        {
-            return redirect()->route('program')->with('pesan_error','File Harus Gambar');    
+        if (!$this->checkType($type)) {
+            return redirect()->route('program')->with('pesan_error', 'File Harus Gambar');
         }
 
         $data = ProgramDetail::find($id);
 
-        $imageName = time().'.'.$request->image->extension();
-        if($data->image !='')
-        {
+        $imageName = time() . '.' . $request->image->extension();
+        if ($data->image != '') {
             $imageName = $data->image;
         }
 
@@ -137,23 +132,21 @@ class ProgramController extends Controller
         $data->image = $imageName;
         $data->save();
 
-        return redirect()->route('program')->with('pesan','Image berhasil di Update');    
+        return redirect()->route('program')->with('pesan', 'Image berhasil di Update');
     }
 
     public function delete($id)
     {
         $data = ProgramDetail::find($id);
-        if($data != '')
-        {
+        if ($data != '') {
             $data->delete();
         }
         // if($data->image != null)
         // {
         //     unlink('uploads/'.$data->image);
         // }
-            
 
-        return redirect()->route('program')->with('pesan','Data berhasil di Hapus');    
 
+        return redirect()->route('program')->with('pesan', 'Data berhasil di Hapus');
     }
 }
