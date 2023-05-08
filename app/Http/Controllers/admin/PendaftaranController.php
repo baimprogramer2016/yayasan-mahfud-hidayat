@@ -14,7 +14,15 @@ class PendaftaranController extends Controller
     //admin
     public function index(Request $request)
     {
-        $data = Pendaftaran::get();
+
+        $data = Pendaftaran::when($request->has('btnsearch'), function ($query) use ($request) {
+            return $query->where('nama_siswa', 'like', '%' . $request->search_nama . '%');
+        })->when($request->search_status != '', function ($query) use ($request) {
+            return $query->where('status', '=', $request->search_status);
+        })
+            ->paginate(1);
+
+
         foreach ($data as $item_status) {
             $item_status->status_description = $this->descStatus($item_status->status);
             $item_status->status_color = $this->descColor($item_status->status);
@@ -80,6 +88,6 @@ class PendaftaranController extends Controller
 
     public function sukses(Request $request)
     {
-        return view('web.pages.home.success');
+        return view('web.pages.success');
     }
 }

@@ -1,5 +1,6 @@
 
   <!-- ======= Contact Section ======= -->
+
   <section id="pendaftaran" class="contact">
     <div class="container">
 
@@ -48,7 +49,7 @@
             </div>
             <div class="form-group mt-3">
               <label for="image"><code>Upload KTP</code></label>
-              <input type="file" class="form-control" name="image" id="image" placeholder="Upload KTP" required>
+              <input type="file" accept="image/*" class="form-control" name="image" id="image" placeholder="Upload KTP" required>
             </div>
           
             <div class="form-group mt-3">
@@ -67,5 +68,7 @@
       </div>
 
     </div>
+
   </section><!-- End Contact Section -->
+
 

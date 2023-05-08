@@ -17,7 +17,14 @@
           <li><a class="nav-link scrollto" href="#gallery">Galleri</a></li>
           <li><a class="nav-link scrollto" href="#pendaftaran">Pendaftaran</a></li>
           <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
-          <li><a class="nav-link scrollto" href="#lainlain">Lainnya</a></li>
+          {{-- <li><a class="nav-link scrollto" href="#lainlain">Lainnya</a></li> --}}
+          <li class="dropdown"><a href="#"><span>Lainnya</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#testimonial">Testimonial</a></li>
+              <li><a href="#dokumen">Laporan Keuangan</a></li>
+              <li><a href="#dokumen">Proposal</a></li>
+            </ul>
+          </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

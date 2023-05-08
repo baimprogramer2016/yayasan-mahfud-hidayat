@@ -1,9 +1,8 @@
   <!-- ======= Features Section ======= -->
-  <section id="lainlain" class="features">
+  <section id="testimonial" class="features">
     <div class="container">
-
       <div class="section-title" data-aos="fade-up">
-        <h2>Lain - Lain</h2>
+        <h2>Testomonial</h2>
         <p>Video Testimonial</p>
         <div class="row">
 

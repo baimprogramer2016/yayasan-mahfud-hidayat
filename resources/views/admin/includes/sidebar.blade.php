@@ -107,5 +107,19 @@
         </div>
       </li>
      
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#dokumen" aria-expanded="false" aria-controls="dokumen">
+            <i class="bi bi-upload mr-2"></i>
+          <span class="menu-title">Dokumen</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="dokumen">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{ route('dokumen') }}">Dokumen</a></li>
+            
+          </ul>
+        </div>
+      </li>
+     
     </ul>
   </nav>

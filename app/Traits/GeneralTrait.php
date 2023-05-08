@@ -16,6 +16,17 @@ trait GeneralTrait
         }
         return false;
     }
+    public function checkTypePdf($type)
+    {
+        $dataType = ["pdf"];
+        foreach ($dataType as $tp) {
+            if ($tp == $type) {
+                return true;
+                break;
+            }
+        }
+        return false;
+    }
 
     public function descStatus($param)
     {
@@ -46,5 +57,12 @@ trait GeneralTrait
             $result = 'success ';
         }
         return $result;
+    }
+
+
+    public function namaDoc($param)
+    {
+        $namadoc = ['', 'Proposal', 'Laporan Keuangan'];
+        return $namadoc[$param];
     }
 }

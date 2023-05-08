@@ -5,11 +5,45 @@
 @section('content')
 
 <div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Pendaftaran Masuk</h4>
+        <form action="{{ route('pendaftaran') }}" method="GET">
+          
+          
+        <div class="row d-flex justify-content-between">
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-3">
+                  <input type="text" value="{{ Request::get('search_nama') }}" class="form-control form-control-sm" name="search_nama" placeholder="Ketikan Pencarian" id="search_nama" aria-describedby="judul">
+              </div>
+              <div class="col-md-3 col-sm-12">
+                  <button type="submit" name="btnsearch" value="btnsearch" class="btn btn-md btn-info btn-icon-text">Cari Pendaftar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="col-md-4">
+          <select class="form-control form-control-sm" name="search_status" onchange="this.form.submit()">
+            <option value="">Pilih Status</option>
+            <option value="N">Baru</option>
+            <option value="O">Dibaca</option>
+            <option value="P">Proses</option>
+            <option value="R">Dibatalkan</option>
+            <option value="D">Selesai</option>
+          </select>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Pendaftaran Masuk</h4>
-            
             <div class="table-responsive pt-3">
             @if(session()->has('pesan'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -52,7 +86,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @if($data != '')  
+                  @if($data->count() > 0)  
                   @foreach ($data as $item_siswa)
                   <tr>
                     <td>
@@ -91,12 +125,21 @@
                   @endforeach
                   @else
                   <tr>
-                    <td colspan=5 class='text-center bg-inverse-danger'>Belum Ada Data</td>
+                    <td colspan=8 class='text-center'>
+                        <div class="alert alert-danger">
+                          <p>
+                            Belum data tersedia
+                          </p>
+                        </div>
+                    </td>
                   </tr>
                   @endif
                  
                 </tbody>
               </table>
+              <div class="row mt-3 d-flex justify-content-center">
+                {{ $data->withQueryString()->links() }}
+              </div>
             </div>
           </div>
         </div>

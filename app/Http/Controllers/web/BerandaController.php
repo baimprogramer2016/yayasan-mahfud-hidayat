@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dokumen;
 use Illuminate\Http\Request;
 use App\Models\Pendahuluan;
 use App\Models\LatarBelakang;
@@ -33,10 +34,11 @@ class BerandaController extends Controller
         $datafacebook       = UpdateUrl::where('nama', 'facebook')->first();
         $datainstagram      = UpdateUrl::where('nama', 'instagram')->first();
         $datanamaperusahaan = UpdateUrl::where('nama', 'namaperusahaan')->first();
-        $datavideotestimonial    = VideoTestimonial::get()->take(3);
+        $datavideotestimonial    = VideoTestimonial::get()->take(6);
+        $datadokumen             = Dokumen::get();
 
 
-        return view('web.pages.home.index', [
+        return view('web.pages.index', [
             "datapendahuluan"   => $datapendahuluan,
             "datalatarbelakang" => $datalatarbelakang,
             "dataprogrammaster" => $dataprogrammaster,
@@ -50,8 +52,10 @@ class BerandaController extends Controller
             "datayoutube"       => $datayoutube,
             "datafacebook"      => $datafacebook,
             "datainstagram"     => $datainstagram,
-            "datanamaperusahaan"     => $datanamaperusahaan,
-            "datavideotestimonial"     => $datavideotestimonial,
+            "datanamaperusahaan"        => $datanamaperusahaan,
+            "datavideotestimonial"      => $datavideotestimonial,
+            "dataproposal"              => $datadokumen->where('kode', 1),
+            "datalaporankeuangan"       => $datadokumen->where('kode', 2)
         ]);
     }
     public function viewPendahuluan(Request $request)

@@ -2,24 +2,25 @@
 
 @section('content')
 
-@include('web.pages.home.baner')
+@include('web.pages.baner')
 
 <main id="main">
 
-  @include('web.pages.home.pendahuluan')
-  @include('web.pages.home.program')
-  @include('web.pages.home.struktural')
-  @include('web.pages.home.team')
-  @include('web.pages.home.lainlain')
-  @include('web.pages.home.gallery')
-  @include('web.pages.home.pendaftaran')
-  {{-- @include('web.pages.home.about')
-  @include('web.pages.home.counts')
-  @include('web.pages.home.details')
+  @include('web.pages.pendahuluan')
+  @include('web.pages.program')
+  @include('web.pages.struktural')
+  @include('web.pages.team')
+  @include('web.pages.video-testimonial')
+  @include('web.pages.dokumen')
+  @include('web.pages.gallery')
+  @include('web.pages.pendaftaran')
+  {{-- @include('web.pages.about')
+  @include('web.pages.counts')
+  @include('web.pages.details')
   
-  @include('web.pages.home.pricing')
-  @include('web.pages.home.faq') --}}
-  @include('web.pages.home.contact')
+  @include('web.pages.pricing')
+  @include('web.pages.faq') --}}
+  @include('web.pages.contact')
 
 
 <!-- Modal -->

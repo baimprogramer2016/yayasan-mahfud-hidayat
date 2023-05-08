@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\DokumenController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\PendahuluanController;
@@ -107,6 +108,15 @@ Route::get('/view-pendahuluan', [BerandaController::class, 'viewPendahuluan'])->
 Route::get('/view-latar-belakang', [BerandaController::class, 'viewLatarBelakang'])->name('view-latar-belakang');
 Route::post('/pendaftaran', [PendaftaranController::class, 'daftar'])->name('simpan-pendaftaranan');
 Route::get('/pendaftaran-success', [PendaftaranController::class, 'sukses'])->name('pendaftaran-success');
+
+Route::get('/dokumen', [DokumenController::class, 'index'])->name('dokumen')->middleware(checkLogin::class);
+Route::get('/tambah-dokumen', [DokumenController::class, 'tambah'])->name('tambah-dokumen')->middleware(checkLogin::class);
+Route::post('/simpan-dokumen', [DokumenController::class, 'simpan'])->name('simpan-dokumen')->middleware(checkLogin::class);
+Route::get('/edit-dokumen/{id}', [DokumenController::class, 'edit'])->name('edit-dokumen')->middleware(checkLogin::class);
+Route::post('/update-dokumen/{id}', [DokumenController::class, 'update'])->name('update-dokumen')->middleware(checkLogin::class);
+Route::get('/file-dokumen/{id}', [DokumenController::class, 'dokumen'])->name('file-dokumen')->middleware(checkLogin::class);
+Route::post('/file-save-dokumen/{id}', [DokumenController::class, 'fileSave'])->name('file-save-dokumen')->middleware(checkLogin::class);
+Route::get('/delete-dokumen/{id}', [DokumenController::class, 'delete'])->name('delete-dokumen')->middleware(checkLogin::class);
 
 
 
