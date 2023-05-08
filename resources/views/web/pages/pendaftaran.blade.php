@@ -71,4 +71,16 @@
 
   </section><!-- End Contact Section -->
 
+  @push('script-bottom')
+    <script src="{{ asset('web/assets/js/jquery-3.6.4.min.js') }}"></script>
+      <script>
+          $('#image').bind('change', function() {
+
+          //this.files[0].size gets the size of your file.
+          if(this.files[0].size > 1000000)
+            alert("File tidak boleh lebih dari 1 Mega Byte, File anda saat ini "+ Math.round(this.files[0].size / 1000000)) +' Mega Byte';
+          });
+        </script>
+  @endpush
+
 

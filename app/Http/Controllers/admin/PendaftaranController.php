@@ -20,7 +20,7 @@ class PendaftaranController extends Controller
         })->when($request->search_status != '', function ($query) use ($request) {
             return $query->where('status', '=', $request->search_status);
         })
-            ->paginate(1);
+            ->paginate(20);
 
 
         foreach ($data as $item_status) {
@@ -60,6 +60,7 @@ class PendaftaranController extends Controller
     //web
     public function daftar(Request $request)
     {
+
         $type = $request->image->extension();
 
         if (!$this->checkType($type)) {
@@ -67,6 +68,8 @@ class PendaftaranController extends Controller
         }
 
         $imageName = time() . '.' . $request->image->extension();
+
+
 
         $payload = [
             "nama_siswa" => $request->nama_siswa,
