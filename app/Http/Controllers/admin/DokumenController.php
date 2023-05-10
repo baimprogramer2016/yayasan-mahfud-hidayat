@@ -46,6 +46,8 @@ class DokumenController extends Controller
 
 
         Dokumen::create($payload);
+
+        sleep(3);
         return redirect()->route('dokumen')->with('pesan', 'Berhasil Tambah Data');
     }
 
@@ -65,6 +67,7 @@ class DokumenController extends Controller
         $data->nama = $this->namaDoc($request->kode);
         $data->save();
 
+        sleep(3);
         return redirect()->route('dokumen')->with('pesan', 'Berhasil Update Data');
     }
 
@@ -99,6 +102,7 @@ class DokumenController extends Controller
         $data->FILE = $imageName;
         $data->save();
 
+        sleep(3);
         return redirect()->route('dokumen')->with('pesan', 'Dokumen berhasil di Update');
     }
 
@@ -112,7 +116,7 @@ class DokumenController extends Controller
             unlink('file_docs/' . $data->FILE);
         }
 
-
+        sleep(3);
         return redirect()->route('dokumen')->with('pesan', 'Data berhasil di Hapus');
     }
 }

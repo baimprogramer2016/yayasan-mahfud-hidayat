@@ -35,6 +35,8 @@ class TeamController extends Controller
 
 
         $result =   Team::create($payload);
+
+        sleep(3);
         return redirect()->route('team')->with('pesan', 'Berhasil Tambah Data');
     }
 
@@ -55,6 +57,7 @@ class TeamController extends Controller
 
         $data->save();
 
+        sleep(3);
         return redirect()->route('team')->with('pesan', 'Berhasil Update Data');
     }
 
@@ -87,6 +90,7 @@ class TeamController extends Controller
         $data->image = $imageName;
         $data->save();
 
+        sleep(3);
         return redirect()->route('team')->with('pesan', 'Image berhasil di Update');
     }
 
@@ -100,7 +104,7 @@ class TeamController extends Controller
             unlink('uploads/' . $data->image);
         }
 
-
+        sleep(3);
         return redirect()->route('team')->with('pesan', 'Data berhasil di Hapus');
     }
 }

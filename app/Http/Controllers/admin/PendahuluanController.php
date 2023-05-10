@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use App\Models\Pendahuluan;
 use App\Traits\GeneralTrait;
 
+
 class PendahuluanController extends Controller
 {
     use GeneralTrait;
@@ -39,6 +40,8 @@ class PendahuluanController extends Controller
         }
 
         $result =   Pendahuluan::create($payload);
+
+        sleep(3);
         return redirect()->route('pendahuluan')->with('pesan', 'Berhasil Tambah Data');
     }
 
@@ -60,6 +63,7 @@ class PendahuluanController extends Controller
 
         $data->save();
 
+        sleep(3);
         return redirect()->route('pendahuluan')->with('pesan', 'Berhasil Update Data');
     }
 
@@ -89,8 +93,11 @@ class PendahuluanController extends Controller
         // Public Folder
         $upload = $request->image->move(public_path('uploads'), $imageName);
 
+
         $data->image = $imageName;
         $data->save();
+
+        sleep(3);
 
         return redirect()->route('pendahuluan')->with('pesan', 'Image berhasil di Update');
     }
@@ -105,7 +112,7 @@ class PendahuluanController extends Controller
             unlink('uploads/' . $data->image);
         }
 
-
+        sleep(3);
         return redirect()->route('pendahuluan')->with('pesan', 'Data berhasil di Hapus');
     }
 }

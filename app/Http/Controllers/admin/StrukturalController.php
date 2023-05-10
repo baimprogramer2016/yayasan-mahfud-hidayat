@@ -34,8 +34,8 @@ class StrukturalController extends Controller
             "image"     => null
         ];
 
-
         $result =   Struktural::create($payload);
+        sleep(3);
         return redirect()->route('struktural')->with('pesan', 'Berhasil Tambah Data');
     }
 
@@ -56,6 +56,7 @@ class StrukturalController extends Controller
         $data->kutipan = $request->kutipan;
 
         $data->save();
+        sleep(3);
 
         return redirect()->route('struktural')->with('pesan', 'Berhasil Update Data');
     }
@@ -89,6 +90,7 @@ class StrukturalController extends Controller
         $data->image = $imageName;
         $data->save();
 
+        sleep(3);
         return redirect()->route('struktural')->with('pesan', 'Image berhasil di Update');
     }
 
@@ -102,7 +104,7 @@ class StrukturalController extends Controller
             unlink('uploads/' . $data->image);
         }
 
-
+        sleep(3);
         return redirect()->route('struktural')->with('pesan', 'Data berhasil di Hapus');
     }
 }

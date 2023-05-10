@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\VideoTestimonial;
 
+
 class VideoTestimonialController extends Controller
 {
     public function index(Request $request)
@@ -29,6 +30,8 @@ class VideoTestimonialController extends Controller
         ];
 
         $result =   VideoTestimonial::create($payload);
+
+        sleep(3);
         return redirect()->route('video-testimonial')->with('pesan', 'Berhasil Tambah Data');
     }
 
@@ -39,7 +42,7 @@ class VideoTestimonialController extends Controller
             $data->delete();
         }
 
-
+        sleep(3);
         return redirect()->route('video-testimonial')->with('pesan', 'Data berhasil di Hapus');
     }
 }

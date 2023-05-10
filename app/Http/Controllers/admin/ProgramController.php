@@ -61,6 +61,8 @@ class ProgramController extends Controller
 
         ProgramMaster::truncate();
         $result =   ProgramMaster::create($payload);
+
+        sleep(3);
         return redirect()->route('program')->with('pesan', 'Berhasil Update Master Program');
     }
 
@@ -79,6 +81,8 @@ class ProgramController extends Controller
         ];
 
         $result =   ProgramDetail::create($payload);
+
+        sleep(3);
         return redirect()->route('program')->with('pesan', 'Berhasil Tambah Data');
     }
 
@@ -100,6 +104,7 @@ class ProgramController extends Controller
 
         $data->save();
 
+        sleep(3);
         return redirect()->route('program')->with('pesan', 'Berhasil Update Data');
     }
 
@@ -132,6 +137,7 @@ class ProgramController extends Controller
         $data->image = $imageName;
         $data->save();
 
+        sleep(3);
         return redirect()->route('program')->with('pesan', 'Image berhasil di Update');
     }
 
@@ -146,7 +152,7 @@ class ProgramController extends Controller
         //     unlink('uploads/'.$data->image);
         // }
 
-
+        sleep(3);
         return redirect()->route('program')->with('pesan', 'Data berhasil di Hapus');
     }
 }

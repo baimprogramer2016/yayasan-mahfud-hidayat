@@ -86,6 +86,8 @@ class PendaftaranController extends Controller
 
         $request->image->move(public_path('uploads/ktp'), $imageName);
         Pendaftaran::create($payload);
+
+        sleep(3);
         return redirect()->route('pendaftaran-success')->with('pesan', 'Pendaftaran Berhasil, Kami akan menghubungi anda kembali melalui Nomor Handphone yang telah di daftarkan, Terima Kasih');
     }
 

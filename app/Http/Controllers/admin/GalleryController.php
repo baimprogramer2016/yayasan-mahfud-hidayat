@@ -45,6 +45,8 @@ class GalleryController extends Controller
 
 
         $result =   Gallery::create($payload);
+
+        sleep(3);
         return redirect()->route('gallery')->with('pesan', 'Berhasil Tambah Data');
     }
 
@@ -63,6 +65,7 @@ class GalleryController extends Controller
         $data->judul = $request->judul;
         $data->save();
 
+        sleep(3);
         return redirect()->route('gallery')->with('pesan', 'Berhasil Update Data');
     }
 
@@ -97,6 +100,8 @@ class GalleryController extends Controller
         $data->image = $imageName;
         $data->save();
 
+        sleep(3);
+
         return redirect()->route('gallery')->with('pesan', 'Image berhasil di Update');
     }
 
@@ -110,7 +115,7 @@ class GalleryController extends Controller
             unlink('uploads/' . $data->image);
         }
 
-
+        sleep(3);
         return redirect()->route('gallery')->with('pesan', 'Data berhasil di Hapus');
     }
 }

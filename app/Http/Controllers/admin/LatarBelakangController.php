@@ -40,6 +40,8 @@ class LatarBelakangController extends Controller
         }
 
         $result =   LatarBelakang::create($payload);
+
+        sleep(3);
         return redirect()->route('latar-belakang')->with('pesan', 'Berhasil Tambah Data');
     }
 
@@ -61,6 +63,7 @@ class LatarBelakangController extends Controller
 
         $data->save();
 
+        sleep(3);
         return redirect()->route('latar-belakang')->with('pesan', 'Berhasil Update Data');
     }
 
@@ -93,6 +96,7 @@ class LatarBelakangController extends Controller
         $data->image = $imageName;
         $data->save();
 
+        sleep(3);
         return redirect()->route('latar-belakang')->with('pesan', 'Image berhasil di Update');
     }
 
@@ -106,7 +110,7 @@ class LatarBelakangController extends Controller
             unlink('uploads/' . $data->image);
         }
 
-
+        sleep(3);
         return redirect()->route('latar-belakang')->with('pesan', 'Data berhasil di Hapus');
     }
 }

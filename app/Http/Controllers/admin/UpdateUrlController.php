@@ -84,7 +84,7 @@ class UpdateUrlController extends Controller
         }
 
 
-
+        sleep(3);
         return redirect()->route('update-url')->with('pesan', 'Berhasil update URL');
     }
 }
