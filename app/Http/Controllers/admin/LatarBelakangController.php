@@ -86,12 +86,13 @@ class LatarBelakangController extends Controller
         $data = LatarBelakang::find($id);
 
         $imageName = time() . '.' . $request->image->extension();
-        if ($data->image != '') {
-            $imageName = $data->image;
+        if ($data->image != null || $data->image != '') {
+            unlink('uploads/' . $data->image);
         }
 
+
         // Public Folder
-        $upload = $request->image->move(public_path('uploads'), $imageName);
+        $request->image->move(public_path('uploads'), $imageName);
 
         $data->image = $imageName;
         $data->save();

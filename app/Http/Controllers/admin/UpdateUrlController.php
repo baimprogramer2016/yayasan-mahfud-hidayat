@@ -75,9 +75,10 @@ class UpdateUrlController extends Controller
             }
 
             $imageName = time() . '.' . $request->image->extension();
-            if ($logo->url != '') {
-                $imageName = $logo->url;
+            if ($logo->image != null || $logo->image != '') {
+                unlink('images/' . $logo->image);
             }
+
             $request->image->move(public_path('images'), $imageName);
             $logo->url = $imageName;
             $logo->save();

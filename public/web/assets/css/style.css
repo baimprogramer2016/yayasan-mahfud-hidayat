@@ -32,6 +32,21 @@ h6 {
     font-family: "Montserrat", sans-serif;
 }
 
+/* Modif Anhari*/
+.img-web{
+    max-height:380px;
+    max-width:500px;
+    height:380px;
+    width:500px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    border-radius: 3%;
+    box-shadow: 2px 2px 5px #ccc;;
+}
+
+/* End modif */
+
 .act-btn {
     display: block;
     width: 40px;

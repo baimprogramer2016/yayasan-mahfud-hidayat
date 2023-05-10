@@ -80,9 +80,10 @@ class StrukturalController extends Controller
         $data = Struktural::find($id);
 
         $imageName = time() . '.' . $request->image->extension();
-        if ($data->image != '') {
-            $imageName = $data->image;
+        if ($data->image != null || $data->image != '') {
+            unlink('uploads/' . $data->image);
         }
+
 
         // Public Folder
         $upload = $request->image->move(public_path('uploads'), $imageName);
