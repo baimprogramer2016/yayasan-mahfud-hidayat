@@ -40,6 +40,7 @@
         </a>
         <div class="collapse" id="struktural">
           <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{ route('struktural-bg') }}">Background</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{ route('struktural') }}">Struktural</a></li>
           </ul>
         </div>

@@ -12,7 +12,10 @@ use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\UpdateUrlController;
 use App\Http\Controllers\admin\PendaftaranController;
 use App\Http\Controllers\admin\VideoTestimonialController;
+use App\Http\Controllers\admin\StrukturalBgController;
+
 use App\Http\Controllers\web\BerandaController;
+
 use App\Http\Middleware\checkLogin;
 
 /*
@@ -101,6 +104,16 @@ Route::get('/video-testimonial', [VideoTestimonialController::class, 'index'])->
 Route::get('/tambah-video-testimonial', [VideoTestimonialController::class, 'tambah'])->name('tambah-video-testimonial')->middleware(checkLogin::class);
 Route::post('/simpan-video-testimonial', [VideoTestimonialController::class, 'simpan'])->name('simpan-video-testimonial')->middleware(checkLogin::class);
 Route::get('/delete-video-testimonial/{id}', [VideoTestimonialController::class, 'delete'])->name('delete-video-testimonial')->middleware(checkLogin::class);
+
+Route::get('/struktural-bg', [StrukturalBgController::class, 'index'])->name('struktural-bg')->middleware(checkLogin::class);
+Route::get('/tambah-struktural-bg', [StrukturalBgController::class, 'tambah'])->name('tambah-struktural-bg')->middleware(checkLogin::class);
+Route::post('/simpan-struktural-bg', [StrukturalBgController::class, 'simpan'])->name('simpan-struktural-bg')->middleware(checkLogin::class);
+Route::get('/edit-struktural-bg/{id}', [StrukturalBgController::class, 'edit'])->name('edit-struktural-bg')->middleware(checkLogin::class);
+Route::post('/update-struktural-bg/{id}', [StrukturalBgController::class, 'update'])->name('update-struktural-bg')->middleware(checkLogin::class);
+Route::get('/image-struktural-bg/{id}', [StrukturalBgController::class, 'image'])->name('image-struktural-bg')->middleware(checkLogin::class);
+Route::post('/image-save-struktural-bg/{id}', [StrukturalBgController::class, 'imageSave'])->name('image-save-struktural-bg')->middleware(checkLogin::class);
+Route::get('/delete-struktural-bg/{id}', [StrukturalBgController::class, 'delete'])->name('delete-struktural-bg')->middleware(checkLogin::class);
+
 
 //WEB
 Route::get('/', [BerandaController::class, 'index'])->name('beranda');

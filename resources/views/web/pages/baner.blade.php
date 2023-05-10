@@ -4,7 +4,7 @@
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
           <div data-aos="zoom-out">
             <h1>{{ $datapendahuluan->judul ?? ''}}</h1>
-            <h2>{!! substr($datapendahuluan->deskripsi ?? '' ,0,60) !!} ...</h2>
+            <h2>{!! substr(strip_tags($datapendahuluan->deskripsi) ?? '' ,0,64) !!} ...</h2>
             <div class="text-center text-lg-start">
               <a href="#pendahuluan" class="btn-get-started scrollto" style="background-color:#148F77 !important;">Selengkapnya</a>
             </div>

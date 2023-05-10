@@ -62,7 +62,7 @@ class BerandaController extends Controller
     {
         $datapendahuluan    = Pendahuluan::first();
 
-        return view('web.pages.home.detail-pendahuluan', [
+        return view('web.pages.detail-pendahuluan', [
             "datapendahuluan" => $datapendahuluan,
         ]);
     }
@@ -70,7 +70,7 @@ class BerandaController extends Controller
     {
         $datalatarbelakang    = LatarBelakang::first();
 
-        return view('web.pages.home.detail-latar-belakang', [
+        return view('web.pages.detail-latar-belakang', [
             "datalatarbelakang" => $datalatarbelakang,
         ]);
     }
