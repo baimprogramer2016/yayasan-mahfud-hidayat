@@ -12,6 +12,7 @@
   @include('web.pages.team')
   @include('web.pages.video-testimonial')
   @include('web.pages.dokumen')
+  @include('web.pages.donatur')
   @include('web.pages.gallery')
   @include('web.pages.pendaftaran')
   {{-- @include('web.pages.about')
@@ -20,6 +21,7 @@
   
   @include('web.pages.pricing')
   @include('web.pages.faq') --}}
+  {{-- @include('web.pages.maps') --}}
   @include('web.pages.contact')
 
 

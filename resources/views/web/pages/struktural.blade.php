@@ -1,5 +1,5 @@
   <!-- ======= Testimonials Section ======= -->
-  <section id="struktural" class="testimonials">
+  <section id="struktural" class="testimonials" style="background-image: url('{{ asset('uploads/'.$datastrukturalbg->image) }}'); no-repeat">
     <div class="container">
 
       <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">

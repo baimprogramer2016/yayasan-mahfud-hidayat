@@ -63,6 +63,15 @@
             </div>
           </div>
         </div>
+        <div class="col-lg-4  mt-5" data-aos="fade-right" data-aos-delay="100">
+          <div class="info">
+            <div class="address">
+              <i class="bi bi-tiktok"></i>
+              <h4>Tiktok: </h4>
+              <p><a target="_blank" class="text-me" href="{{ $datatiktok->url }}">{{ $datatiktok->url }}</a></p>
+            </div>
+          </div>
+        </div>
       
       </div>
      

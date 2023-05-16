@@ -11,9 +11,9 @@ use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\UpdateUrlController;
 use App\Http\Controllers\admin\PendaftaranController;
+use App\Http\Controllers\admin\RekeningController;
 use App\Http\Controllers\admin\VideoTestimonialController;
 use App\Http\Controllers\admin\StrukturalBgController;
-
 use App\Http\Controllers\web\BerandaController;
 
 use App\Http\Middleware\checkLogin;
@@ -114,6 +114,10 @@ Route::get('/image-struktural-bg/{id}', [StrukturalBgController::class, 'image']
 Route::post('/image-save-struktural-bg/{id}', [StrukturalBgController::class, 'imageSave'])->name('image-save-struktural-bg')->middleware(checkLogin::class);
 Route::get('/delete-struktural-bg/{id}', [StrukturalBgController::class, 'delete'])->name('delete-struktural-bg')->middleware(checkLogin::class);
 
+Route::get('/donatur', [RekeningController::class, 'donatur'])->name('donatur')->middleware(checkLogin::class);
+Route::post('/donatur-simpan', [RekeningController::class, 'donaturSimpan'])->name('donatur-simpan')->middleware(checkLogin::class);
+Route::get('/rekening', [RekeningController::class, 'index'])->name('rekening')->middleware(checkLogin::class);
+Route::post('/rekening-simpan', [RekeningController::class, 'rekeningSimpan'])->name('rekening-simpan')->middleware(checkLogin::class);
 
 //WEB
 Route::get('/', [BerandaController::class, 'index'])->name('beranda');

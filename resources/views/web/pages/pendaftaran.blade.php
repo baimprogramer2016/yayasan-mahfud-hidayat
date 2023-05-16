@@ -15,7 +15,7 @@
         </div>
        
         <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
-          <form method="POST" enctype="multipart/form-data" action="{{ route('pendaftaran') }}">
+          <form method="POST" enctype="multipart/form-data" action="{{ route('pendaftaran-store') }}">
             @csrf
           <div  class="php-email-form">
             <div class="row">
@@ -47,10 +47,7 @@
             <div class="form-group mt-3">
               <input type="number" name="nomor_ktp" class="form-control" id="nomor_ktp" placeholder="Nomor KTP" required>
             </div>
-            <div class="form-group mt-3">
-              <label for="image"><code>Upload KTP</code></label>
-              <input type="file" accept="image/*" class="form-control" name="image" id="image" placeholder="Upload KTP" required>
-            </div>
+          
           
             <div class="form-group mt-3">
               <textarea class="form-control" name="pesan" id="pesan" rows="3" placeholder="Tulisa Pesan"></textarea>

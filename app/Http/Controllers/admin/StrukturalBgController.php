@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Traits\GeneralTrait;
 use App\Models\StrukturalBg;
@@ -35,13 +34,13 @@ class StrukturalBgController extends Controller
 
         $data   =   StrukturalBg::count();
         if ($data == 1) {
-            return redirect()->route('struktural-bg')->with('pesan_error', 'Gagal, Data sudah ada Silahkan Update ');
+            return redirect()->route('pendahuluan')->with('pesan_error', 'Gagal, Data sudah ada Silahkan Update ');
         }
 
         $result =   StrukturalBg::create($payload);
 
         sleep(3);
-        return redirect()->route('struktural-bg')->with('pesan', 'Berhasil Tambah Data');
+        return redirect()->route('pendahuluan')->with('pesan', 'Berhasil Tambah Data');
     }
 
     public function edit(Request $request, $id)
@@ -63,7 +62,7 @@ class StrukturalBgController extends Controller
         $data->save();
 
         sleep(3);
-        return redirect()->route('struktural-bg')->with('pesan', 'Berhasil Update Data');
+        return redirect()->route('pendahuluan')->with('pesan', 'Berhasil Update Data');
     }
 
     public function image(Request $request, $id)
@@ -79,7 +78,7 @@ class StrukturalBgController extends Controller
         $type = $request->image->extension();
 
         if (!$this->checkType($type)) {
-            return redirect()->route('struktural-bg')->with('pesan_error', 'File Harus Gambar');
+            return redirect()->route('pendahuluan')->with('pesan_error', 'File Harus Gambar');
         }
 
         $data = StrukturalBg::find($id);
@@ -99,7 +98,7 @@ class StrukturalBgController extends Controller
 
         sleep(3);
 
-        return redirect()->route('struktural-bg')->with('pesan', 'Image berhasil di Update');
+        return redirect()->route('pendahuluan')->with('pesan', 'Image berhasil di Update');
     }
 
     public function delete($id)
@@ -113,6 +112,6 @@ class StrukturalBgController extends Controller
         }
 
         sleep(3);
-        return redirect()->route('struktural-bg')->with('pesan', 'Data berhasil di Hapus');
+        return redirect()->route('pendahuluan')->with('pesan', 'Data berhasil di Hapus');
     }
 }

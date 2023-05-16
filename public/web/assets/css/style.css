@@ -40,9 +40,13 @@ h6 {
     width:500px;
     background-repeat: no-repeat;
     background-attachment: fixed;
+       
+    background-position: center center;
     background-size: cover;
+    position: relative;
+
     border-radius: 3%;
-    box-shadow: 2px 2px 5px #ccc;;
+    box-shadow: 2px 2px 5px #ccc;
 }
 
 /* End modif */
@@ -1088,7 +1092,7 @@ section {
 --------------------------------------------------------------*/
 .testimonials {
     padding: 80px 0;
-    background: url("../img/cta-bg.jpg") no-repeat;
+    
     background-position: center center;
     background-size: cover;
     position: relative;

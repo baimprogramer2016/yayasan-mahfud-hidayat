@@ -1,7 +1,7 @@
   <!-- ======= About Section ======= -->
   <section id="pendahuluan" class="about">
     <div class="container-fluid">
-      <div class="row">
+      <div class="row mb-5">
         <div class="col-xl-5 col-lg-6  d-flex justify-content-center align-items-stretch" data-aos="fade-right">
           {{-- <a href="https://www.youtube.com/watch?v=StpBR2W8G5A" class="glightbox play-btn mb-4"></a> --}}
          

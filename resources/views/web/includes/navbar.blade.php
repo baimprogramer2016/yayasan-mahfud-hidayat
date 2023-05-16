@@ -23,6 +23,7 @@
               <li><a class="scrollto" href="#testimonial">Testimonial</a></li>
               <li><a class="scrollto" href="#dokumen">Laporan Keuangan</a></li>
               <li><a class="scrollto" href="#dokumen">Proposal</a></li>
+              <li><a class="scrollto" href="#donatur">Donatur</a></li>
             </ul>
           </li>
         </ul>

@@ -12,8 +12,10 @@ use App\Models\ProgramDetail;
 use App\Models\Struktural;
 use App\Models\Team;
 use App\Models\Gallery;
+use App\Models\StrukturalBg;
 use App\Models\UpdateUrl;
 use App\Models\VideoTestimonial;
+use App\Models\Rekening;
 
 class BerandaController extends Controller
 {
@@ -34,8 +36,11 @@ class BerandaController extends Controller
         $datafacebook       = UpdateUrl::where('nama', 'facebook')->first();
         $datainstagram      = UpdateUrl::where('nama', 'instagram')->first();
         $datanamaperusahaan = UpdateUrl::where('nama', 'namaperusahaan')->first();
+        $datatiktok         = UpdateUrl::where('nama', 'tiktok')->first();
         $datavideotestimonial    = VideoTestimonial::get()->take(6);
         $datadokumen             = Dokumen::get();
+        $strukturalbg            = StrukturalBg::first();
+        $datarekening            = Rekening::first();
 
 
         return view('web.pages.index', [
@@ -52,6 +57,9 @@ class BerandaController extends Controller
             "datayoutube"       => $datayoutube,
             "datafacebook"      => $datafacebook,
             "datainstagram"     => $datainstagram,
+            "datatiktok"        => $datatiktok,
+            "datastrukturalbg"  => $strukturalbg,
+            "datarekening"      => $datarekening,
             "datanamaperusahaan"        => $datanamaperusahaan,
             "datavideotestimonial"      => $datavideotestimonial,
             "dataproposal"              => $datadokumen->where('kode', 1),

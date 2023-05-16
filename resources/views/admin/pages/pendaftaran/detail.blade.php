@@ -6,7 +6,7 @@
         <div class="media">
           <div class="row ">
             <div class="col-md-6">
-                <img width="500" src="{{ asset("uploads/ktp/".$data->file_ktp) }}" alt="">
+                {{-- <img width="500" src="{{ asset("uploads/ktp/".$data->file_ktp) }}" alt=""> --}}
             </div>
             <div class="col-md-6">
               <table border=1 style="border:1px solid #cedadc;" class="table table-striped table-borderless">

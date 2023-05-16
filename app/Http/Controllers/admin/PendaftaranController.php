@@ -61,16 +61,17 @@ class PendaftaranController extends Controller
     public function daftar(Request $request)
     {
 
-        $type = $request->image->extension();
+        // $type = $request->image->extension();
 
-        if (!$this->checkType($type)) {
-            return back()->with('pesan_error', 'File Harus Gambar');
-        }
+        // if (!$this->checkType($type)) {
+        //     return back()->with('pesan_error', 'File Harus Gambar');
+        // }
 
-        $imageName = time() . '.' . $request->image->extension();
+        // $imageName = time() . '.' . $request->image->extension();
 
 
 
+        // "file_ktp" => $imageName,
         $payload = [
             "nama_siswa" => $request->nama_siswa,
             "kelas" => $request->kelas,
@@ -80,11 +81,10 @@ class PendaftaranController extends Controller
             "nomor_hp" => $request->nomor_hp,
             "nomor_ktp" => $request->nomor_ktp,
             "pesan" => $request->pesan,
-            "file_ktp" => $imageName,
             "status" => 'N',
         ];
 
-        $request->image->move(public_path('uploads/ktp'), $imageName);
+        // $request->image->move(public_path('uploads/ktp'), $imageName);
         Pendaftaran::create($payload);
 
         sleep(3);

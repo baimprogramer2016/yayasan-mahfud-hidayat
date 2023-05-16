@@ -121,6 +121,19 @@
           </ul>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#rekening" aria-expanded="false" aria-controls="rekening">
+            <i class="bi bi-bank mr-2"></i>
+          <span class="menu-title">Info Donatur</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="rekening">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{ route('donatur') }}">Nilai Donatur</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('rekening') }}">Rekening</a></li>
+          </ul>
+        </div>
+      </li>
      
     </ul>
   </nav>
