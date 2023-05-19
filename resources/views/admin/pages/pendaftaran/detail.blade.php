@@ -47,7 +47,7 @@
                   </tr>
                   <tr>
                     <td>Pesan</td>
-                    <td>{{ $data->pesan }}</td>
+                    <td><textarea cols=200 rows=10>{{ $data->pesan }}</textarea></td>
                   </tr>
                 </tbody>
               </table>
