@@ -63,7 +63,7 @@ trait GeneralTrait
 
     public function namaDoc($param)
     {
-        $namadoc = ['', 'Proposal', 'Laporan Keuangan'];
+        $namadoc = ['', 'Company Profile', 'Proposal', 'Laporan Keuangan'];
         return $namadoc[$param];
     }
 }

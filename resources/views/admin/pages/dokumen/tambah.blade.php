@@ -4,8 +4,9 @@
       <label for="judul">Jenis Dokumen</label>
       <select class="form-control form-control-sm" name="kode" id="kode" >
         <option value="">Pilih Jenis Dokumen</option>
-        <option value="1">Proposal</option>
-        <option value="2">Laporan Keuangan</option>
+        <option value="1">Company Profile</option>
+        <option value="2">Proposal</option>
+        <option value="3">Laporan Keuangan</option>
       </select>
     </div>
     <div class="form-group" >
