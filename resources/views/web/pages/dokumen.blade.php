@@ -8,43 +8,22 @@
 
       <div class="faq-list">
         <ul>
-          @if( $datacompanyprofile != null )
-                <li data-aos="fade-up" data-aos-delay="100">
-                  <i class="bx bx-file icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-1" class="collapsed">{{ $datacompanyprofile->nama }}<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="faq-list-1" class="collapse" data-bs-parent=".faq-list">
-                          <div class="row mt-3">
-                            <div class="col-12">
-                              <iframe src="file_docs/{{ $datacompanyprofile->FILE }}" align="top" height="620" width="100%" frameborder="0" scrolling="auto"></iframe>
-                            </div>
-                          </div>
-                  </div>
-                </li>
-          @endif  
-          @if( $dataproposal != null )
-                <li data-aos="fade-up" data-aos-delay="100">
-                  <i class="bx bx-file icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">{{ $dataproposal->nama }}<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                          <div class="row mt-3">
-                            <div class="col-12">
-                              <iframe src="file_docs/{{ $dataproposal->FILE }}" align="top" height="620" width="100%" frameborder="0" scrolling="auto"></iframe>
-                            </div>
-                          </div>
-                  </div>
-                </li>
-          @endif  
-          @if( $datalaporankeuangan != null )
-                <li data-aos="fade-up" data-aos-delay="100">
-                  <i class="bx bx-file icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">{{ $datalaporankeuangan->nama }}<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
-                          <div class="row mt-3">
-                            <div class="col-12">
-                              <iframe src="file_docs/{{ $datalaporankeuangan->FILE }}" align="top" height="620" width="100%" frameborder="0" scrolling="auto"></iframe>
-                            </div>
-                          </div>
-                  </div>
-                </li>
-          @endif  
+          @if( $datadokument->count() > 0 )
 
+              @foreach ($datadokument as $item_dokument)
+                    <li data-aos="fade-up" data-aos-delay="100">
+                      <i class="bx bx-file icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-{{ $item_dokument->id }}" class="collapsed">{{ $item_dokument->nama }}<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                      <div id="faq-list-{{ $item_dokument->id }}" class="collapse" data-bs-parent=".faq-list">
+                              <div class="row mt-3">
+                                <div class="col-12">
+                                  <iframe src="file_docs/{{ $item_dokument->FILE }}" align="top" height="620" width="100%" frameborder="0" scrolling="auto"></iframe>
+                                </div>
+                              </div>
+                      </div>
+                    </li>
+              @endforeach
+          @endif  
+         
           {{-- <li data-aos="fade-up" data-aos-delay="100">
             <i class="bx bx-money icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Laporan Keuangan <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
             <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">

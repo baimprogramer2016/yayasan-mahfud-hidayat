@@ -33,11 +33,9 @@
                     <th>
                       #
                     </th>
+                 
                     <th>
-                      Kode
-                    </th>
-                    <th>
-                      Jenis Dokumen
+                      Nama Dokumen
                     </th>
                     <th>
                       File
@@ -55,10 +53,7 @@
                     <td>
                       #
                     </td>
-                    <td>
-                       {{ $item->kode }}
-                    </td>
-                 
+                   
                     <td>
                        {{ $item->nama }}
                     </td>

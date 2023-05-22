@@ -40,7 +40,7 @@ class DokumenController extends Controller
 
         $payload = [
             "kode"     => $request->kode,
-            "nama"     => $this->namaDoc($request->kode),
+            "nama"     => $request->nama,
             "FILE"     => $imageName
         ];
 
@@ -64,7 +64,7 @@ class DokumenController extends Controller
         $data   =   Dokumen::find($id);
 
         $data->kode = $request->kode;
-        $data->nama = $this->namaDoc($request->kode);
+        $data->nama = $request->nama;
         $data->save();
 
         sleep(3);

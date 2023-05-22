@@ -1,13 +1,9 @@
 <form action="{{ route('simpan-dokumen') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group" >
-      <label for="judul">Jenis Dokumen</label>
-      <select class="form-control form-control-sm" name="kode" id="kode" >
-        <option value="">Pilih Jenis Dokumen</option>
-        <option value="1">Company Profile</option>
-        <option value="2">Proposal</option>
-        <option value="3">Laporan Keuangan</option>
-      </select>
+      <label for="judul">Keterangan Dokument</label>
+      <input type="hidden" required name="kode" class="form-control" id="kode" value=0>
+      <input type="text" required name="nama" class="form-control" id="nama">
     </div>
     <div class="form-group" >
       <label for="file"> Pilih File</label>

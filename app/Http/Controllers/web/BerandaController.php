@@ -38,9 +38,8 @@ class BerandaController extends Controller
         $datanamaperusahaan = UpdateUrl::where('nama', 'namaperusahaan')->first();
         $datatiktok         = UpdateUrl::where('nama', 'tiktok')->first();
         $datavideotestimonial    = VideoTestimonial::get()->take(6);
-        $datacompanyprofile      = Dokumen::where('kode', 1)->first();
-        $dataproposal            = Dokumen::where('kode', 2)->first();
-        $datalaporankeuangan     = Dokumen::where('kode', 3)->first();
+        $datadokument           = Dokumen::get();
+
         $strukturalbg            = StrukturalBg::first();
         $datarekening            = Rekening::first();
 
@@ -65,9 +64,7 @@ class BerandaController extends Controller
             "datarekening"      => $datarekening,
             "datanamaperusahaan"        => $datanamaperusahaan,
             "datavideotestimonial"      => $datavideotestimonial,
-            "datacompanyprofile"        => $datacompanyprofile,
-            "dataproposal"              => $dataproposal,
-            "datalaporankeuangan"       => $datalaporankeuangan
+            "datadokument"      => $datadokument,
         ]);
     }
     public function viewPendahuluan(Request $request)
